@@ -20,7 +20,7 @@ const routes = [
       },
       {
         path: '/home',
-        name: 'cart',
+        name: 'home',
         component: () => import('@/views/home/homeView')
       }
     ]

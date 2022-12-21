@@ -2,21 +2,37 @@ import request from '@/utils/request'
 // export const swiperApi = () => request({ url: '/swiper' })
 export const swiperApi = () =>
   request({
-    url: '/swiper'
+    url: '/swiper',
+    params: {
+      token: '595fe950-7ebd-11ed-aa1f-dd279271aa3a'
+    }
   })
 export const activitysApi = () =>
   request({
-    url: '/activitys'
+    url: '/activitys',
+    params: {
+      token: '595fe950-7ebd-11ed-aa1f-dd279271aa3a'
+    }
   })
 export const goodsApi = () =>
   request({
-    url: '/goods'
+    url: '/goods',
+    params: {
+      token: '595fe950-7ebd-11ed-aa1f-dd279271aa3a'
+    }
   })
 export const secondsApi = () =>
   request({
-    url: '/seconds'
+    url: '/seconds',
+    params: {
+      token: '595fe950-7ebd-11ed-aa1f-dd279271aa3a'
+    }
   })
-export const goodsDetailApi = () =>
+export const goodsDetailApi = goodsId =>
   request({
-    url: '/goodsDetail'
+    url: '/goodsDetail',
+    params: {
+      token: '595fe950-7ebd-11ed-aa1f-dd279271aa3a',
+      goodsId
+    }
   })

@@ -5,7 +5,7 @@ const request = axios.create({
 })
 request.interceptors.request.use(
   function (config) {
-    config.params = { token: '595fe950-7ebd-11ed-aa1f-dd279271aa3a' }
+    // config.params = {  }
     return config
   },
   function (error) {

@@ -2,9 +2,9 @@
   <div>
     <van-nav-bar :title="title" v-if="title" fixed />
     <div v-else class="search">
-      <van-icon name="wap-nav" size="20px" />
+      <van-icon name="wap-nav" size="30px" color="#fff" />
       <van-search v-model="value" placeholder="大前端开发，混合京东商城系统" shape="round" class="grail" />
-      <van-icon name="chat-o" size="20px" />
+      <van-icon name="chat-o" size="30px" color="#fff" />
     </div>
 
     <router-view></router-view>
@@ -35,8 +35,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* margin-left: 5px; */
-    /* background-color: rgba(255, 255, 255, 0); */
     z-index: 1;
   }
   .grail {

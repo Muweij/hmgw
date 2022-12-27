@@ -11,7 +11,7 @@
       </div>
     </div>
     <van-grid :column-num="5" class="goods" :border="false">
-      <van-grid-item v-for="item in goodsdata" :key="item.id" :icon="item.icon" :text="item.text" />
+      <van-grid-item v-for="item in goodsdata" :key="item.id" :icon="item.icon" :text="item.text" @click="appFn" />
     </van-grid>
     <div class="seckill">
       <div>
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-  import moment from 'moment'
+  // import moment from 'moment'
   import { swiperApi, activitysApi, secondsApi, goodsApi } from '@/api/home'
   import shoppView from '@/components/shoppView.vue'
 
@@ -52,7 +52,7 @@
     },
     data() {
       return {
-        time: +new Date('2022-12-22 16:00:00') - +new Date(),
+        time: +new Date('2022-12-27 16:00:00') - +new Date(),
         getdata: [],
         activitysdata: [],
         goodsdata: [
@@ -113,7 +113,7 @@
     },
     async created() {
       try {
-        console.log(moment().add(1, 'days').calendar())
+        // console.log(moment().add(1, 'days').calendar())
         let { data } = await swiperApi()
         this.getdata = data.data.list
         let { data: activitys } = await activitysApi()
@@ -124,12 +124,16 @@
         this.goods = goods.data.list
         log
       } catch (error) {
-        console.log(error)
+        // console.log(error)
       }
     },
     computed: {},
     watch: {},
-    methods: {}
+    methods: {
+      appFn() {
+        this.$router.push('/product')
+      }
+    }
   }
 </script>
 
@@ -142,6 +146,7 @@
     text-align: center;
     /* background-color: #39a9ed; */
   }
+
   .van-swipe-item img {
     width: 100%;
     height: 100%;
@@ -158,9 +163,7 @@
     width: 100%;
     height: 100%;
   }
-  .goods {
-    /* transform: translateY(-30px); */
-  }
+
   .seckill {
     width: 100%;
     /* height: 330px; */

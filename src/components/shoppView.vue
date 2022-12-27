@@ -1,7 +1,12 @@
 <template>
   <div class="shangpin" @click="addFn(item.id)">
     <img :src="item.img" height="190px" />
-    <span class="wenzi">{{ item.name }}</span>
+
+    <span class="wenzi">
+      <span class="manufa" v-if="item.isDirect">直营</span>
+      <span class="stock" v-if="!item.isHave">缺货</span>
+      {{ item.name }}
+    </span>
     <span class="df">
       <span class="jiage">￥{{ item.price }}</span>
 
@@ -15,7 +20,11 @@
     props: ['item'],
     methods: {
       addFn(id) {
-        this.$router.push(`/details${id}`)
+        if (this.item.isHave) {
+          this.$router.push(`/details${id}`)
+        } else {
+          alert('该商品暂无库存')
+        }
       }
     }
   }
@@ -51,5 +60,15 @@
   .df {
     display: flex;
     justify-content: space-between;
+  }
+  .manufa {
+    background-color: red;
+    color: #fff;
+    margin-right: 5px;
+  }
+  .stock {
+    background-color: rgb(120, 120, 120);
+    color: #fff;
+    margin-right: 5px;
   }
 </style>

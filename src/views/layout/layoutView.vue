@@ -7,7 +7,10 @@
       <van-icon name="chat-o" size="30px" color="#fff" />
     </div>
 
-    <router-view></router-view>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+
     <van-tabbar route>
       <van-tabbar-item replace to="/home" icon="home-o" @click="title = false">首页</van-tabbar-item>
       <van-tabbar-item replace to="/cart" icon="shopping-cart-o" @click="title = '购物车'">购物车</van-tabbar-item>
@@ -20,7 +23,7 @@
   export default {
     data() {
       return {
-        title: '',
+        title: '购物车',
         value: ''
       }
     }
